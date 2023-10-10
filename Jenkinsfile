@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Git Checkout'){
             steps{
+                // Github file forked from another repository
                  git branch: 'main', url: 'https://github.com/ToluOlorode/spring-petclinic.git'
             }
 
@@ -51,6 +52,7 @@ pipeline {
         
         stage('Manual Approval'){
             steps {
+                 // Build will pause here until approval is given
                 input message: 'Do you want to proceed to Deployment?', ok: 'Proceed'
             }
         }
